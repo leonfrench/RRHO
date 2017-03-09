@@ -24,7 +24,7 @@ numericListOverlap<- function(sample1, sample2, stepsize){
     return(c(counts=count, log.pval=log.pval))    
   }
   
-  indexes<- expand.grid(i=seq(1,n,by=stepsize), j=seq(1,n,by=stepsize))
+  indexes<- expand.grid(i=seq(stepsize,n-stepsize,by=stepsize), j=seq(stepsize,n-stepsize,by=stepsize))
   overlaps<- apply(indexes, 1, function(x) overlap(x['i'],x['j']))
   
   nrows<- sqrt(ncol(overlaps))
